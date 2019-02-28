@@ -13,3 +13,7 @@ body {
   background: #ccc;
   padding: 3em;
 }
+
+p:target{
+  background: red;
+}
