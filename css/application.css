@@ -1,0 +1,15 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.basic-example {
+  display: flex;
+  background: #ccc;
+  padding: 3em;
+}
