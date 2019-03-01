@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:300,700');
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -8,12 +10,100 @@ body {
   font-weight: 300;
 }
 
+img {max-width: 100%;}
+
 .basic-example {
   display: flex;
   background: #ccc;
   padding: 3em;
 }
 
-p:target{
+p:target{ background: red; }
+
+.portfolio {
+  display: grid;
+  /*grid-template-columns: repeat(3, 1fr);*/
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1em;
+  padding: 5em;
+  background: #333;
+}
+
+.portfolio__image,
+.portfolio-lightbox__image { width: 100%; display: block; }
+
+.portfolio__item {
+  background: white;
+}
+
+.portfolio__description {
+  padding: 1.5em;
+}
+
+.portfolio__title {
+  font-size: 1.5em;
+  margin-top: 0;
+}
+
+.portfolio-lightboxes {
+  /*display: none;*/
+}
+
+.portfolio-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+  width: 100vw;
+  height: 100vh;
+  z-index:10;
+  background: rgba(0,0,0,.5);
+  color: white;
+  transform: scale(0,1);
+  transform-origin: right;
+  transition: transform ease-in-out 150ms;
+  /*transform: scale(0,0);*/
+  /* Can also just do scale(0) */
+  /*transform-origin: top-right;*/
+
+  /*transform: scale(1,0);*/
+  /*transform-origin: top;*/
+}
+
+.portfolio-lightbox:target {
+  /*display: flex;*/
+  transform: scale(1,1);
+  transform-origin: left;
+  /*transform-origin: left; to slide off screen, combine with a .portfolio-lightbox transform origin right
+  (lines 67 & 68) */
+}
+
+.portfolio-lightbox__content {
+  width: 75%;
+  background: black;
+  padding: 1em;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  width: 2em;
+  height: 2em;
   background: red;
+  top: -1em;
+  right: -1em;
+  border-radius: 50%;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close::after{
+  content: 'X';
+  color: white;
+  font-weight: 700;
 }
