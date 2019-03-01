@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:300,700');
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -8,12 +10,82 @@ body {
   font-weight: 300;
 }
 
+img {max-width: 100%;}
+
 .basic-example {
   display: flex;
-  background: #ccc;
-  padding: 3em;
+/*  background: #ccc;
+  padding: 3em;*/
 }
 
-p:target{
+p:target{ background: red; }
+
+.portfolio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+  padding: 5em;
+  background: #333;
+}
+
+.portfolio__item {
+  background: white;
+}
+
+.portfolio__description {
+  padding: 1.5em;
+}
+
+.portfolio__title {
+  font-size: 1.5em;
+  margin-top: 0;
+}
+
+.portfolio-lightboxes {
+  /*display: none;*/
+}
+
+.portfolio-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,.5);
+  color: white;
+  /*display: flex;*/
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-lightbox:target {
+  display: flex;
+}
+
+.portfolio-lightbox__content {
+  width: 75%;
+  background: black;
+  padding: 1em;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  width: 2em;
+  height: 2em;
   background: red;
+  top: -1em;
+  right: -1em;
+  border-radius: 50%;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close::after{
+  content: 'X';
+  color: white;
+  font-weight: 700;
 }
