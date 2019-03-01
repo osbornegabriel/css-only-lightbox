@@ -53,14 +53,29 @@ p:target{ background: red; }
   height: 100vh;
   background: rgba(0,0,0,.5);
   color: white;
-  /*display: flex;*/
-  display: none;
+  display: flex;
+  /*display: none;*/
   align-items: center;
   justify-content: center;
+  transform: scale(0,0);
+  /* Can also just do scale(0) */
+  transform-origin: top-right;
+
+  /*transform: scale(1,0);*/
+  /*transform-origin: top;*/
+
+  transform: scale(0,1);
+  transform-origin: right;
+
+  transition: transform ease-in-out 500ms;
 }
 
 .portfolio-lightbox:target {
-  display: flex;
+  /*display: flex;*/
+  transform: scale(1,1);
+  transform-origin: left;
+  /*transform-origin: left; to slide off screen, combine with a .portfolio-lightbox transform origin right
+  (lines 67 & 68) */
 }
 
 .portfolio-lightbox__content {
